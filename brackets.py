@@ -16,7 +16,8 @@ def is_valid(expr):
     Returns True if the brackets within the given expression
     are opened and closed properly, or False if they are not.
     """
-    pass
+    if "(" and ")" and "[" and "]" and "{" and "}" and "<" and ">" not in expr:
+        return 'YES'
 
 
 def main(args):

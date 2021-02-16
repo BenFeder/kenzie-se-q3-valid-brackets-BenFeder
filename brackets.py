@@ -6,7 +6,7 @@ Kenzie Assignment: Valid Brackets
 
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Benjamin Feder"
 
 import sys
 
@@ -16,7 +16,6 @@ def is_valid(expr):
     Returns True if the brackets within the given expression
     are opened and closed properly, or False if they are not.
     """
-    # your code here
     pass
 
 

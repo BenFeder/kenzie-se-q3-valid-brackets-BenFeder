@@ -16,17 +16,44 @@ def is_valid(expr):
     Returns True if the brackets within the given expression
     are opened and closed properly, or False if they are not.
     """
-    if "(" and ")" and "[" and "]" and "{" and "}" and "<" and ">" not in expr:
+
+    if "(" not in expr and ")" not in expr and "[" not in expr and "]" not in expr and "{" not in expr and "}" not in expr and "<" not in expr and ">" not in expr:
         return 'YES'
 
-    count_paren = 0
+    brackets_list = []
+
     for char in range(len(expr)):
-        if expr[char] == "(":
-            count_paren += 1
+        if expr[char] == "(" or expr[char] == "[" or expr[char] == "{" or expr[char] == "<":
+            brackets_list.append(expr[char])
+
         elif expr[char] == ")":
-            count_paren -= 1
-            if count_paren < 0:
+            if "(" == brackets_list[-1]:
+                brackets_list.pop()
+            else:
                 return "NO " + str(char + 1)
+
+        elif expr[char] == "]":
+            if "[" == brackets_list[-1]:
+                brackets_list.pop()
+            else:
+                return "NO " + str(char + 1)
+
+        elif expr[char] == "}":
+            if "{" == brackets_list[-1]:
+                brackets_list.pop()
+            else:
+                return "NO " + str(char + 1)
+
+        elif expr[char] == ">":
+            if "<" == brackets_list[-1]:
+                brackets_list.pop()
+            else:
+                return "NO " + str(char + 1)
+
+    if brackets_list == []:
+        return "YES"
+    else:
+        return "NO " + str(len(expr) + 1)
 
 
 def main(args):

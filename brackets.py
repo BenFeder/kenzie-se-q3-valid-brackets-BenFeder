@@ -19,6 +19,15 @@ def is_valid(expr):
     if "(" and ")" and "[" and "]" and "{" and "}" and "<" and ">" not in expr:
         return 'YES'
 
+    count_paren = 0
+    for char in range(len(expr)):
+        if expr[char] == "(":
+            count_paren += 1
+        elif expr[char] == ")":
+            count_paren -= 1
+            if count_paren < 0:
+                return "NO " + str(char + 1)
+
 
 def main(args):
     """Call `is_valid()` for the expression passed in."""

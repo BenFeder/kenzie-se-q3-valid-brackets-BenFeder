@@ -17,13 +17,23 @@ def is_valid(expr):
     are opened and closed properly, or False if they are not.
     """
 
-    if "(" not in expr and ")" not in expr and "[" not in expr and "]" not in expr and "{" not in expr and "}" not in expr and "<" not in expr and ">" not in expr:
-        return 'YES'
+    if "(" not in expr:
+        if ")" not in expr:
+            if "[" not in expr:
+                if "]" not in expr:
+                    if "{" not in expr:
+                        if "}" not in expr:
+                            if "<" not in expr:
+                                if ">" not in expr:
+                                    return 'YES'
 
     brackets_list = []
 
     for char in range(len(expr)):
-        if expr[char] == "(" or expr[char] == "[" or expr[char] == "{" or expr[char] == "<":
+        if expr[char] == "(" or expr[char] == "[":
+            brackets_list.append(expr[char])
+
+        elif expr[char] == "{" or expr[char] == "<":
             brackets_list.append(expr[char])
 
         elif expr[char] == ")":
